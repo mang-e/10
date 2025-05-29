@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI, 유용하지만 완벽하지 않다.</title>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <script src="[https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js](https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js)"></script>
+    <style>
+        /* Custom CSS for font and chart container */
+        @import url('[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap)');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F4F7F9; /* Light Background */
+            color: #263238; /* Dark Text */
+        }
+        .chart-container {
+            position: relative;
+            height: 350px; /* Default height for charts */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .card {
+            background-color: #FFFFFF; /* Card Background */
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            color: #2A62B6; /* Primary Blue */
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .text-primary-blue {
+            color: #2A62B6;
+        }
+        .text-secondary-teal {
+            color: #4ECDC4;
+        }
+        .text-accent-grey {
+            color: #A9A9A9;
+        }
+        .bg-supporting-light-blue {
+            background-color: #E0F2FE;
+        }
+        .border-primary-blue {
+            border-color: #2A62B6;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+    <header class="text-center mb-10">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-primary-blue mb-4">AI, 유용하지만 완벽하지 않다.</h1>
+        <p class="text-lg md:text-xl text-accent-grey">미림 마이스터 고등학교 1학년 3반 1조 공동 조사 보고서 요약</p>
+        <div class="flex justify-center space-x-6 text-sm text-gray-600 mt-4">
+            <span>작성일: 2025년 5월 25일</span>
+            <span>학번: 1301, 1310, 1313, 1314</span>
+            <span>이름: 강별, 이서현, 이하준, 임지수</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto">
+        <section id="motivation-purpose" class="card">
+            <h2 class="text-2xl section-title">1. 조사 동기 및 목적</h2>
+            <p class="mb-4">최근 학교 내에서 인공지능(AI) 기술이 빠르게 확산되면서 많은 학생들이 이를 다양한 방식으로 활용하는 모습을 보였다. 그러나 일부 학생들은 AI를 숙제나 과제 해결에만 의존하거나, 무분별하게 사용하면서 학습 효과가 떨어지는 사례가 나타났다. 이에 따라 AI를 올바르지 않게 사용하는 경향이 늘고 있다는 점이 문제라고 생각하여, 이번 조사를 시작했다.</p>
+            <p>이번 조사의 목적은 학생들이 AI 기술을 보다 바르게 이해하고, 효과적이며 책임감 있게 사용할 수 있도록 방향을 제시하는 데 있다.</p>
+        </section>
+
+        <section id="research-plan" class="card">
+            <h2 class="text-2xl section-title">2. 조사 계획</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold text-secondary-teal mb-2">조사 개요</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>기간:</strong> 5월 15일(목) 하루 동안 진행했다. 필요 시 상황에 따라 추가적인 조사가 이뤄졌다.</li>
+                        <li><strong>대상:</strong> 미림 마이스터 고등학교 1학년 3반 학생들이다.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-secondary-teal mb-2">조사 방법</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>설문조사:</strong> Google 폼을 이용한 설문조사를 통해 전체적인 경향을 파악했다.</li>
+                        <li><strong>인터뷰:</strong> 심층 인터뷰를 통해 보다 심층적인 의견과 경험을 수집했다.</li>
+                        <li><strong>목표:</strong> 이를 바탕으로 다양한 시각에서 AI 활용 실태를 분석했다.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-6">
+                <h3 class="text-xl font-semibold text-secondary-teal mb-2">인터뷰 역할 분담</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                    <div class="p-3 bg-supporting-light-blue rounded-lg">강별<br><span class="font-medium">인터뷰어 (질문자)</span></div>
+                    <div class="p-3 bg-supporting-light-blue rounded-lg">이하준<br><span class="font-medium">촬영</span></div>
+                    <div class="p-3 bg-supporting-light-blue rounded-lg">임지수<br><span class="font-medium">녹음</span></div>
+                    <div class="p-3 bg-supporting-light-blue rounded-lg">이서현<br><span class="font-medium">녹음</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research-results" class="card">
+            <h2 class="text-2xl section-title">3. 조사 결과</h2>
+
+            <h3 class="text-xl font-semibold text-secondary-teal mb-4">3.1 설문조사 결과</h3>
+
+            <div class="mb-8">
+                <h4 class="text-lg font-medium mb-2">1. 평소 AI 챗봇(예: ChatGPT, Gemini, Clova 등)에게 질문하는 빈도는 어느 정도입니까?</h4>
+                <div class="chart-container">
+                    <canvas id="q1Chart"></canvas>
+                </div>
+                <p class="text-sm text-accent-grey mt-2"><strong>주목할 만한 내용:</strong> 1학년 3반 학생들은 모두 AI에게 한 번쯤은 질문을 해봤다.</p>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-lg font-medium mb-2">2. AI에게 질문했을 때, 답변 내용이 질문과 관련 없는 경우가 얼마나 자주 있었나?</h4>
+                <div class="chart-container">
+                    <canvas id="q2Chart"></canvas>
+                </div>
+                <p class="text-sm text-accent-grey mt-2"><strong>주목할 만한 내용:</strong> 답변 내용이 질문과 관련 없는 경우가 가끔 있는 것을 보면, AI의 답변이 보다 정확하지 않은 것 같다.</p>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-lg font-medium mb-2">3. AI를 사용할 때 주로 어떤 종류의 불편함을 경험하셨습니까?(복수응답 가능)</h4>
+                <div class="chart-container">
+                    <canvas id="q3Chart"></canvas>
+                </div>
+                <p class="text-sm text-accent-grey mt-2"><strong>주목할 만한 내용:</strong> 우리 반 학생들은 AI의 답변이 부정확하거나, 신뢰성이 부족하고 느린 응답으로 불편함을 많이 겪는다.</p>
+            </div>
+
+            <h3 class="text-xl font-semibold text-secondary-teal mb-4 mt-8">3.2 인터뷰 결과</h3>
+            <div class="space-y-6">
+                <div class="p-4 border border-accent-grey rounded-lg bg-supporting-light-blue">
+                    <h4 class="text-lg font-medium mb-2">인터뷰 인물 1: 김하진</h4>
+                    <p class="mb-2"><strong>주요 키워드:</strong> 심심풀이 활용</p>
+                    <p class="text-sm">인터뷰에 응한 학생은 AI를 주로 심심할 때 놀이 용도로 사용한다고 답했으며, AI 응답에 대한 만족도가 높아, 실패 경험이 거의 없다고 전했다. AI 사용 빈도는 낮으며, 일정한 루틴 없이 필요할 때 사용한다고 밝혔다.</p>
+                    <p class="text-sm text-gray-500 mt-2">인터뷰 촬영 링크: <a href="[https://clovanote.naver.com/s/H2J7PhqawjSTCE7E8VPow6S](https://clovanote.naver.com/s/H2J7PhqawjSTCE7E8VPow6S)" target="_blank" class="text-primary-blue hover:underline">클로바노트 링크</a></p>
+                </div>
+                <div class="p-4 border border-accent-grey rounded-lg bg-supporting-light-blue">
+                    <h4 class="text-lg font-medium mb-2">인터뷰 인물 2: 이유민</h4>
+                    <p class="text-sm">인터뷰에 응한 두 번째 학생은 AI를 주로 학업이나 과제 해결에 활용한다고 답했다. 또한 AI의 답변이 예상보다 사람과 반응이 비슷하다는 점에서 흥미를 느꼈으며, AI 사용 빈도에 대해선 전반적으로 필요할 때만 제한적으로 사용한다고 밝혔다.</p>
+                </div>
+                <div class="p-4 border border-accent-grey rounded-lg">
+                    <h4 class="text-lg font-medium mb-2">인터뷰 주요 단어 워드 클라우드 (개념적 표현)</h4>
+                    <p class="text-sm text-accent-grey mb-2">인터뷰 주요 단어를 AI에 입력해 만든 워드 클라우드는 다음과 같은 핵심 개념을 포함한다:</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xl font-bold text-primary-blue">심심풀이</span>
+                        <span class="text-lg font-semibold text-secondary-teal">학업</span>
+                        <span class="text-base text-accent-grey">과제</span>
+                        <span class="text-xl font-bold text-primary-blue">놀이</span>
+                        <span class="text-lg font-semibold text-secondary-teal">재미</span>
+                        <span class="text-base text-accent-grey">휴식</span>
+                        <span class="text-xl font-bold text-primary-blue">코드 오류</span>
+                        <span class="text-lg font-semibold text-secondary-teal">질문</span>
+                        <span class="text-base text-accent-grey">제한적 사용</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion-suggestion" class="card">
+            <h2 class="text-2xl section-title">4. 결론 및 제언</h2>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-secondary-teal mb-2">4.1 조사 결과 총합 및 주요 발견점</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>AI는 주로 심심할 때 놀이나 간단한 게임(예: 끝말잇기)을 위해 사용되고, 학습과 과제 수행을 돕는 도구로도 활용되고 있음을 알게 됐다.</li>
+                    <li>인터뷰에서는 AI와의 상호작용에서 재미와 휴식의 목적으로 AI를 자주 이용하고, 학습 중 코드 오류 해결이나 과제 관련 질문에 AI를 활용하는 것을 발견했다.</li>
+                </ul>
+            </div>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-secondary-teal mb-2">4.2 조사를 통해 새롭게 알게 된 점 및 느낀 점</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>생각보다 AI를 사용하는 학생들이 많았고 이 학생들은 비슷한 불편함을 가지고 있다는 것을 알 수 있었다.</li>
+                    <li>AI 사용 빈도는 개인의 필요에 따라 다르지만, 일주일에 2회 정도 사용하는 경우가 많았으며, 특히 학습이나 과제 수행 시 많이 사용하는 것을 알게 됐다.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold text-secondary-teal mb-2">4.3 제언 (우리의 다짐)</h3>
+                <p>미림마이스터고 1학년 3반 17명 학생들이 보다 정확한 정보를 얻을 수 있도록 도울 것이다.</p>
+            </div>
+        </section>
+
+        <section id="references" class="card">
+            <h2 class="text-2xl section-title">5. 참고자료</h2>
+            <ul class="list-disc list-inside space-y-1">
+                <li>Gemini</li>
+                <li>ChatGPT</li>
+                <li>Google 폼</li>
+                <li>클로바</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="text-center text-accent-grey text-sm mt-10 p-4 border-t border-gray-200">
+        <p>&copy; 2025 미림 마이스터 고등학교 1학년 3반 1조. 모든 권리 보유.</p>
+    </footer>
+
+    <script>
+        // TypeScript converted to JavaScript for Chart.js
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to wrap labels for Chart.js
+            const wrapLabel = (label, maxCharsPerLine = 16) => {
+                if (typeof label !== 'string') return label;
+                const words = label.split(' ');
+                let currentLine = '';
+                const lines = [];
+                words.forEach(word => {
+                    if ((currentLine + word).length > maxCharsPerLine && currentLine !== '') {
+                        lines.push(currentLine.trim());
+                        currentLine = word + ' ';
+                    } else {
+                        currentLine += word + ' ';
+                    }
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            };
+
+            // Custom Tooltip Callback
+            const customTooltip = (context) => {
+                if (!context.length) return;
+                const dataPoint = context[0];
+                const label = dataPoint.label;
+                const value = dataPoint.formattedValue;
+                return `${label}: ${value}`;
+            };
+
+            // Data for Chart 1: AI Chatbot Usage Frequency
+            const q1Data = {
+                labels: ['거의 없다', '가끔 한다', '보통이다', '자주 한다', '항상 한다'].map(label => wrapLabel(label)),
+                datasets: [{
+                    data: [0, 3, 9, 4, 1],
+                    backgroundColor: ['#A9A9A9', '#4ECDC4', '#2A62B6', '#E0F2FE', '#FF6B6B'], // Using palette, adding one more color
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2
+                }]
+            };
+
+            const q1Config = {
+                type: 'pie',
+                data: q1Data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#263238',
+                                font: {
+                                    size: 14
+                                },
+                                generateLabels: function(chart) {
+                                    const data = chart.data;
+                                    if (data.labels.length && data.datasets.length) {
+                                        return data.labels.map((label, i) => {
+                                            const meta = chart.getDatasetMeta(0);
+                                            const style = meta.controller.get
+                                            ElementAndDataset().dataset.backgroundColor[i];
+                                            const value = data.datasets[0].data[i];
+                                            const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                            const percentage = total > 0 ? ((value / total) * 100).toFixed(1) + '%' : '0%';
+                                            return {
+                                                text: `${label.join(' ')} (${percentage})`, // Join wrapped labels for legend
+                                                fillStyle: style,
+                                                strokeStyle: '#FFFFFF',
+                                                lineWidth: 2,
+                                                hidden: isNaN(value) || meta.data[i].hidden,
+                                                index: i
+                                            };
+                                        });
+                                    }
+                                    return [];
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label;
+                                    const value = context.parsed;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = total > 0 ? ((value / total) * 100).toFixed(1) + '%' : '0%';
+                                    return `${label}: ${value}명 (${percentage})`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            const q1ChartCtx = document.getElementById('q1Chart').getContext('2d');
+            new Chart(q1ChartCtx, q1Config);
+
+            // Data for Chart 2: Irrelevant AI Responses
+            const q2Data = {
+                labels: ['거의 없다', '가끔 있다', '보통이다', '자주 있다', '항상 있다'].map(label => wrapLabel(label)),
+                datasets: [{
+                    data: [0, 11, 2, 3, 1],
+                    backgroundColor: ['#A9A9A9', '#2A62B6', '#4ECDC4', '#E0F2FE', '#FF6B6B'], // Using palette
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2
+                }]
+            };
+
+            const q2Config = {
+                type: 'pie',
+                data: q2Data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#263238',
+                                font: {
+                                    size: 14
+                                },
+                                generateLabels: function(chart) {
+                                    const data = chart.data;
+                                    if (data.labels.length && data.datasets.length) {
+                                        return data.labels.map((label, i) => {
+                                            const meta = chart.getDatasetMeta(0);
+                                            const style = meta.controller.get
+                                            ElementAndDataset().dataset.backgroundColor[i];
+                                            const value = data.datasets[0].data[i];
+                                            const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                            const percentage = total > 0 ? ((value / total) * 100).toFixed(1) + '%' : '0%';
+                                            return {
+                                                text: `${label.join(' ')} (${percentage})`,
+                                                fillStyle: style,
+                                                strokeStyle: '#FFFFFF',
+                                                lineWidth: 2,
+                                                hidden: isNaN(value) || meta.data[i].hidden,
+                                                index: i
+                                            };
+                                        });
+                                    }
+                                    return [];
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label;
+                                    const value = context.parsed;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = total > 0 ? ((value / total) * 100).toFixed(1) + '%' : '0%';
+                                    return `${label}: ${value}명 (${percentage})`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            const q2ChartCtx = document.getElementById('q2Chart').getContext('2d');
+            new Chart(q2ChartCtx, q2Config);
+
+            // Data for Chart 3: AI Usage Inconveniences (Bar Chart for multiple answers)
+            const q3Data = {
+                labels: ['기술적 오류', '사용법의 어려움', '결과 부정확성', '높은 비용', '기타'].map(label => wrapLabel(label)),
+                datasets: [{
+                    label: '응답 수',
+                    data: [6, 2, 12, 3, 1],
+                    backgroundColor: [
+                        '#2A62B6', // Primary Blue
+                        '#4ECDC4', // Secondary Teal
+                        '#FF6B6B', // A distinct color for the highest value
+                        '#A9A9A9', // Accent Grey
+                        '#E0F2FE'  // Supporting Light Blue
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 1
+                }]
+            };
+
+            const q3Config = {
+                type: 'bar',
+                data: q3Data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y', // Make it a horizontal bar chart
+                    plugins: {
+                        legend: {
+                            display: false // No legend needed for single dataset bar chart
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label;
+                                    const value = context.parsed.x; // For horizontal bar chart, value is x
+                                    return `${label}: ${value}명`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#263238',
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            grid: {
+                                color: '#E0F2FE' // Light grid lines
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#263238',
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            };
+
+            const q3ChartCtx = document.getElementById('q3Chart').getContext('2d');
+            new Chart(q3ChartCtx, q3Config);
+        });
+    </script>
+</body>
+</html>
